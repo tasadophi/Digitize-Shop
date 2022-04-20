@@ -25,13 +25,13 @@ const Header = () => {
         {/* filter section */}
         <div className="flex items-center justify-between p-6 gap-2 text-sm text-slate-800">
           <div className="bg-white flex p-3 gap-3 items-center rounded w-full">
-            <span className="text-orange-600">
+            <span className="w-6 h-6 text-orange-600">
               <Sort />
             </span>
             <span>محبوب ترین</span>
           </div>
           <div className="bg-white flex p-3 gap-3 rounded w-full">
-            <span className="text-gray-300">
+            <span className="w-6 h-6 text-gray-300">
               <Filter />
             </span>
             <span>فیلتر</span>
