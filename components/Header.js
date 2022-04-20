@@ -18,13 +18,13 @@ const Header = () => {
             height={42}
           />
           <span className="text-slate-800 font-bold">ساعت هوشمند</span>
-          <span className="w-8 h-8 bg-white shadow flex justify-center items-center rounded">
+          <span className="w-8 h-8 p-1 bg-white shadow flex justify-center items-center rounded">
             <Search />
           </span>
         </div>
         {/* filter section */}
         <div className="flex items-center justify-between p-6 gap-2 text-sm text-slate-800">
-          <div className="bg-white flex p-3 gap-3 rounded w-full">
+          <div className="bg-white flex p-3 gap-3 items-center rounded w-full">
             <span className="text-orange-600">
               <Sort />
             </span>
