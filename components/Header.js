@@ -40,25 +40,25 @@ const Header = () => {
       </div>
       {/* desktop header */}
       <div className="hidden p-7 bg-white max-h-32 gap-14 items-center lg:flex">
-        <div className="flex gap-4">
+        <div className="flex gap-6">
           <div>
             <span className="text-orange-600 text-2xl font-bold">
               دیجی&#8239;
             </span>
             <span className="text-slate-800 text-2xl font-bold">تایز</span>
           </div>
-          <span className="text-slate-800 text-2xl font-bold">
+          <span className="text-slate-800 text-2xl font-bold hover:text-orange-600">
             <Link href="/">خانه</Link>
           </span>
         </div>
         <div className="text-slate-800 flex gap-14 text-2xl whitespace-nowrap">
-          <span>
+          <span className="hover:text-orange-600">
             <Link href="/pages/products/mobiles">تلفن همراه</Link>
           </span>
-          <span>
+          <span className="hover:text-orange-600">
             <Link href="/pages/products/mobiles">لپتاپ</Link>
           </span>
-          <span>
+          <span className="hover:text-orange-600">
             <Link href="/pages/products/mobiles">ساعت هوشمند</Link>
           </span>
         </div>
