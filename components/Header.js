@@ -34,7 +34,7 @@ const Header = () => {
             <span className="text-gray-300">
               <Filter />
             </span>
-            <span>فیلتر: اپل</span>
+            <span>فیلتر</span>
           </div>
         </div>
       </div>
