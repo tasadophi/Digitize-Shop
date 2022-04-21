@@ -53,13 +53,13 @@ const Header = () => {
         </div>
         <div className="text-slate-800 flex gap-14 text-2xl whitespace-nowrap">
           <span className="hover:text-orange-600">
-            <Link href="/pages/products/mobiles">تلفن همراه</Link>
+            <Link href="/products/mobiles">تلفن همراه</Link>
           </span>
           <span className="hover:text-orange-600">
-            <Link href="/pages/products/mobiles">لپتاپ</Link>
+            <Link href="/products/mobiles">لپتاپ</Link>
           </span>
           <span className="hover:text-orange-600">
-            <Link href="/pages/products/mobiles">ساعت هوشمند</Link>
+            <Link href="/products/mobiles">ساعت هوشمند</Link>
           </span>
         </div>
         <div className="w-full max-w-xl max-h-12 flex items-center bg-stone-50 py-3 px-4 rounded">
