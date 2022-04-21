@@ -56,10 +56,10 @@ const Header = () => {
             <Link href="/products/mobiles">تلفن همراه</Link>
           </span>
           <span className="hover:text-orange-600">
-            <Link href="/products/mobiles">لپتاپ</Link>
+            <Link href="/products/laptops">لپتاپ</Link>
           </span>
           <span className="hover:text-orange-600">
-            <Link href="/products/mobiles">ساعت هوشمند</Link>
+            <Link href="/products/watches">ساعت هوشمند</Link>
           </span>
         </div>
         <div className="w-full max-w-xl max-h-12 flex items-center bg-stone-50 py-3 px-4 rounded">
