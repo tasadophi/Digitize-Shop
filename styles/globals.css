@@ -1,7 +1,7 @@
-@import url("/styles/fonts.css");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("./fonts.css");
 
 html {
   direction: rtl;
@@ -9,4 +9,8 @@ html {
 
 body {
   background-color: #f4f4f4;
+}
+
+input[type="checkbox"]:checked + label span {
+  @apply bg-orange-600;
 }
