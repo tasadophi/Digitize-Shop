@@ -7,6 +7,9 @@ module.exports = {
     fontFamily: {
       sans: "vazir",
     },
+    container: {
+      center: true,
+    },
     extend: {},
   },
   plugins: [],
