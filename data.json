@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "category": "mobiles",
+    "brand": "apple",
+    "brandFa": "اپل",
+    "model": "گوشی اپل آیفون 13",
+    "image": "/images/iphone2.png",
+    "price": 29300000,
+    "colors": ["#000", "#2563eb", "#dc2626"],
+    "specifications": [
+      {
+        "nameFa": "حافظه داخلی",
+        "value": "128 گیگابایت"
+      },
+      {
+        "nameFa": "شبکه های ارتباطی",
+        "value": "2G 3G 4G 5G"
+      },
+      {
+        "nameFa": "سایز صفحه نمایش",
+        "value": "6.3 اینچ"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "category": "mobiles",
+    "brand": "apple",
+    "brandFa": "اپل",
+    "model": "گوشی اپل آیفون 13 پرو",
+    "image": "/images/iphone3.png",
+    "price": 35430000,
+    "colors": ["#000", "#2563eb", "#dc2626"],
+    "specifications": [
+      {
+        "nameFa": "حافظه داخلی",
+        "value": "256 گیگابایت"
+      },
+      {
+        "nameFa": "شبکه های ارتباطی",
+        "value": "2G 3G 4G 5G"
+      },
+      {
+        "nameFa": "سایز صفحه نمایش",
+        "value": "6.5 اینچ"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "category": "mobiles",
+    "brand": "apple",
+    "brandFa": "اپل",
+    "model": "گوشی اپل آیفون 13 پرومکس",
+    "image": "/images/iphone4.png",
+    "price": 43550000,
+    "colors": ["#000", "#2563eb", "#dc2626"],
+    "specifications": [
+      {
+        "nameFa": "حافظه داخلی",
+        "value": "256 گیگابایت"
+      },
+      {
+        "nameFa": "شبکه های ارتباطی",
+        "value": "2G 3G 4G 5G"
+      },
+      {
+        "nameFa": "سایز صفحه نمایش",
+        "value": "6.7 اینچ"
+      }
+    ]
+  }
+]
