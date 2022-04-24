@@ -1,9 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import Filter from "../public/images/icons/Filter";
-import Search from "../public/images/icons/Search";
-import Sort from "../public/images/icons/Sort";
-
+import FilterIcon from "./icons/FilterIcon";
+import SearchIcon from "./icons/SearchIcon";
+import SortIcon from "./icons/SortIcon";
 const Header = () => {
   return (
     <header className="lg:container">
@@ -19,20 +18,20 @@ const Header = () => {
           />
           <span className="text-slate-800 font-bold">ساعت هوشمند</span>
           <span className="w-8 h-8 p-1 bg-white shadow flex justify-center items-center rounded">
-            <Search />
+            <SearchIcon />
           </span>
         </div>
         {/* filter section */}
         <div className="flex items-center justify-between p-6 gap-2 text-sm text-slate-800">
           <div className="bg-white flex p-3 gap-3 items-center rounded w-full">
             <span className="w-6 h-6 text-orange-600">
-              <Sort />
+              <SortIcon />
             </span>
             <span>محبوب ترین</span>
           </div>
           <div className="bg-white flex p-3 gap-3 rounded w-full">
             <span className="w-6 h-6 text-gray-300">
-              <Filter />
+              <FilterIcon />
             </span>
             <span>فیلتر</span>
           </div>
@@ -64,7 +63,7 @@ const Header = () => {
         </div>
         <div className="w-full max-w-xl max-h-12 flex items-center bg-stone-50 py-3 px-4 rounded">
           <span className="w-7 h-full bg-inherit text-slate-800">
-            <Search />
+            <SearchIcon />
           </span>
           <input
             type="text"
