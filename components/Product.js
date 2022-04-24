@@ -10,7 +10,7 @@ const getColors = (colorCode) => {
     <span
       key={colorCode}
       style={styles}
-      className="w-6 h-6 rounded-full ring-offset-2 -mr-2 flex justify-center items-center"
+      className="w-6 h-6 rounded-full -mr-2 flex justify-center items-center"
     >
       <span className="border border-white w-4 h-4 rounded-full block"></span>
     </span>
@@ -32,7 +32,7 @@ const Product = ({ product }) => {
         <div className="flex justify-between items-center">
           <span className="text-gray-300">{product.brandFa}</span>
           <div className="flex">
-            {product.colors.map((colorCode) => getColors(colorCode))}
+            {product.colors.map((color) => getColors(color.hex))}
           </div>
         </div>
         <div className="flex flex-col text-sm gap-2 pb-2 border-b border-orange-200">
