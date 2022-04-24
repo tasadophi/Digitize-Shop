@@ -1,7 +1,7 @@
-import Brand from "../public/images/icons/Brand";
-import Chevron from "../public/images/icons/Chevron";
-import Color from "../public/images/icons/Color";
-import Price from "../public/images/icons/Price";
+import BrandIcon from "./icons/BrandIcon";
+import ChevronIcon from "./icons/ChevronIcon";
+import ColorIcon from "./icons/ColorIcon";
+import PriceIcon from "./icons/PriceIcon";
 import CheckBox from "./CheckBox";
 
 const Filters = () => {
@@ -10,11 +10,13 @@ const Filters = () => {
       <li>
         <div className="flex items-center gap-8 cursor-pointer">
           <div className="flex gap-2">
-            <Brand />
+            <span className="w-6 h-6">
+              <BrandIcon />
+            </span>
             برند محصول
           </div>
           <span>
-            <Chevron />
+            <ChevronIcon />
           </span>
         </div>
         <ul className="pt-4 flex flex-col gap-3">
@@ -35,11 +37,13 @@ const Filters = () => {
       <li>
         <div className="flex items-center gap-8 cursor-pointer">
           <div className="flex gap-2">
-            <Color />
+            <span className="w-6 h-6">
+              <ColorIcon />
+            </span>
             رنگ محصول
           </div>
-          <span>
-            <Chevron />
+          <span className="w-6 h-6">
+            <ChevronIcon />
           </span>
         </div>
         <ul></ul>
@@ -47,11 +51,13 @@ const Filters = () => {
       <li>
         <div className="flex items-center gap-8 cursor-pointer">
           <div className="flex gap-2">
-            <Price />
+            <span className="w-6 h-6">
+              <PriceIcon />
+            </span>
             محدوده قیمت
           </div>
-          <span>
-            <Chevron />
+          <span className="w-6 h-6">
+            <ChevronIcon />
           </span>
         </div>
         <ul></ul>
