@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { sepratePrice } from "../lib/api";
 
@@ -21,7 +22,12 @@ const Product = ({ product }) => {
     <>
       <div className="bg-white p-2 rounded-xl flex flex-col gap-4">
         <div className="bg-stone-200 rounded-lg flex justify-center items-center">
-          <img src={product.image} alt={product.model} />
+          <Image
+            src={product.image}
+            alt={product.model}
+            width={140}
+            height={165}
+          />
         </div>
         <div className="flex justify-between items-center">
           <span className="text-gray-300">{product.brandFa}</span>
@@ -36,7 +42,9 @@ const Product = ({ product }) => {
           </span>
         </div>
         <button className="text-orange-600 font-bold">
-          <Link href={`/products/${product.category}/${product.id}`}>مشاهده و سفارش</Link>
+          <Link href={`/products/${product.category}/${product.id}`}>
+            مشاهده و سفارش
+          </Link>
         </button>
       </div>
     </>
