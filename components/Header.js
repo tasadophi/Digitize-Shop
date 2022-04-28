@@ -6,37 +6,6 @@ import SortIcon from "./icons/SortIcon";
 const Header = () => {
   return (
     <header className="lg:container">
-      {/* mobile haader */}
-      <div className="flex flex-col lg:hidden">
-        {/* main title */}
-        <div className="flex justify-between items-center p-6">
-          <Image
-            src="/images/Logo.png"
-            alt="digitize logo"
-            width={50}
-            height={42}
-          />
-          <span className="text-slate-800 font-bold">ساعت هوشمند</span>
-          <span className="w-8 h-8 p-1 bg-white shadow flex justify-center items-center rounded">
-            <SearchIcon />
-          </span>
-        </div>
-        {/* filter section */}
-        <div className="flex items-center justify-between p-6 gap-2 text-sm text-slate-800">
-          <div className="bg-white flex p-3 gap-3 items-center rounded w-full">
-            <span className="w-6 h-6 text-orange-600">
-              <SortIcon />
-            </span>
-            <span>محبوب ترین</span>
-          </div>
-          <div className="bg-white flex p-3 gap-3 rounded w-full">
-            <span className="w-6 h-6 text-gray-300">
-              <FilterIcon />
-            </span>
-            <span>فیلتر</span>
-          </div>
-        </div>
-      </div>
       {/* desktop header */}
       <div className="hidden p-7 bg-white max-h-32 gap-14 items-center lg:flex">
         <div className="flex gap-6">
