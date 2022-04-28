@@ -1,12 +1,13 @@
-import MobileIcon from "./icons/MobileIcon";
-import LaptopIcon from "./icons/LaptopIcon";
-import WatchIcon from "./icons/WatchIcon";
 import Product from "./Product";
 import Filters from "./Filters";
-import Link from "next/link";
 import Head from "next/head";
 import { useProducts } from "../context/state";
 import { getProductsByCategory } from "../lib/api";
+import Categories from "./Categories";
+import SearchIcon from "./icons/SearchIcon";
+import SortIcon from "./icons/SortIcon";
+import FilterIcon from "./icons/FilterIcon";
+import Image from "next/image";
 
 const titles = {
   mobiles: "گوشی های موبایل",
@@ -24,37 +25,39 @@ const Products = ({ category }) => {
       <Head>
         <title>{titles[category]}</title>
       </Head>
-      <main className="lg:container p-6 grid grid-cols-5 gap-4 lg:px-0">
-        <div className="hidden col-span-1 p-6 bg-white rounded-xl max-h-[650px] lg:block">
-          <span className="text-orange-600 font-bold text-xl block mb-5">
-            دسته بندی
-          </span>
-          <div className="flex flex-col gap-4">
-            <span className="flex gap-2 cursor-pointer w-fit hover:text-orange-600">
-              <span className="w-6 h-6">
-                <MobileIcon />
-              </span>
-              <Link href="/products/mobiles">تلفن همراه</Link>
-            </span>
-            <span className="flex gap-2 cursor-pointer w-fit hover:text-orange-600">
-              <span className="w-6 h-6">
-                <LaptopIcon />
-              </span>
-              <Link href="/products/laptops">لپتاپ</Link>
-            </span>
-            <span className="flex gap-2 cursor-pointer w-fit hover:text-orange-600">
-              <span className="w-6 h-6">
-                <WatchIcon />
-              </span>
-              <Link href="/products/watches">ساعت هوشمند</Link>
+      <main className="lg:container p-6 grid grid-cols-5 gap-4">
+        <div className="flex flex-col col-span-5 lg:hidden">
+          <div className="flex justify-between items-center py-6">
+            <Image
+              src="/images/Logo.png"
+              alt="digitize logo"
+              width={50}
+              height={42}
+            />
+            <span className="text-slate-800 font-bold">ساعت هوشمند</span>
+            <span className="w-8 h-8 p-1 bg-white shadow flex justify-center items-center rounded">
+              <SearchIcon />
             </span>
           </div>
-          <span className="text-orange-600 font-bold text-xl block my-6">
-            فیلتر
-          </span>
+          <div className="flex items-center justify-between py-6 gap-2 text-sm text-slate-800">
+            <div className="bg-white flex p-3 gap-3 items-center rounded w-full">
+              <span className="w-6 h-6 text-orange-600">
+                <SortIcon />
+              </span>
+              <span>محبوب ترین</span>
+            </div>
+            <div className="bg-white flex p-3 gap-3 rounded w-full">
+              <span className="w-6 h-6 text-gray-300">
+                <FilterIcon />
+              </span>
+              <span>فیلتر</span>
+            </div>
+          </div>
+        </div>
+        <div className="hidden col-span-1 p-6 bg-white rounded-xl max-h-[650px] lg:block">
+          <Categories />
           <Filters />
         </div>
-        {/* products */}
         <div className="col-span-5 flex flex-col gap-8 lg:col-span-4">
           <div className="hidden bg-white w-full h-6 rounded-md lg:block"></div>
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4 lg:gap-4 lg:px-0">
