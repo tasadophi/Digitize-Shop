@@ -21,7 +21,7 @@ const Product = ({ product }) => {
   return (
     <>
       <div className="bg-white p-2 rounded-xl flex flex-col gap-4">
-        <div className="bg-stone-200 rounded-lg flex justify-center items-center">
+        <div className="bg-stone-200 rounded-lg flex justify-center items-center p-6">
           <Image
             src={product.image}
             alt={product.model}
