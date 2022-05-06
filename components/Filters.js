@@ -5,6 +5,7 @@ import PriceIcon from "./icons/PriceIcon";
 import CheckBox from "./CheckBox";
 import { useState } from "react";
 import { useProducts } from "../context/state";
+import { sepratePrice } from "../lib/api";
 
 const getBrands = (products) => {
   const allBrands = products.map((product) => product.brand);
@@ -25,6 +26,16 @@ const getColors = (products) => {
   });
 };
 
+const getMinMaxPrice = (products) => {
+  const allPrices = products.map((product) => {
+    return product.price;
+  });
+  return {
+    min: Math.min(...allPrices),
+    max: Math.max(...allPrices),
+  };
+};
+
 const Filters = () => {
   const [showMenu, setShowMenu] = useState({
     brand: false,
@@ -32,8 +43,10 @@ const Filters = () => {
     price: false,
   });
   const products = useProducts();
+  const minMaxPrices = getMinMaxPrice(products.allProducts);
   const brands = getBrands(products.allProducts);
   const colors = getColors(products.allProducts);
+  const [priceRange, setPriceRange] = useState(minMaxPrices.min);
 
   // handler
   const showHideMenu = (property) => {
@@ -130,8 +143,20 @@ const Filters = () => {
               showMenu["price"] ? "flex" : "hidden"
             }`}
           >
-            <li>
-              <input defaultValue="10" type="range" />
+            <li className="flex flex-col">
+              <input
+                className="appearance-none rotate-180 cursor-pointer w-full h-2 rounded-lg p-0 bg-orange-100 focus:outline-none focus:ring-0 focus:shadow-nones"
+                min={minMaxPrices.min}
+                max={minMaxPrices.max}
+                value={priceRange}
+                onChange={(e) => setPriceRange(e.target.value)}
+                type="range"
+              />
+              <div className="flex justify-between gap-1 p-2">
+                <p className="text-sm">{sepratePrice(minMaxPrices.max)}</p>
+                <p className="text-sm border border-orange-600 rounded p-1 text-orange-600 bg-orange-100">{sepratePrice(priceRange)}</p>
+                <p className="text-sm">{sepratePrice(minMaxPrices.min)}</p>
+              </div>
             </li>
           </ul>
         </li>
