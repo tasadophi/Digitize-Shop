@@ -8,6 +8,7 @@ import SearchIcon from "./icons/SearchIcon";
 import SortIcon from "./icons/SortIcon";
 import FilterIcon from "./icons/FilterIcon";
 import Image from "next/image";
+import { useState } from "react";
 
 const titles = {
   mobiles: "گوشی های موبایل",
@@ -16,6 +17,7 @@ const titles = {
 };
 
 const Products = ({ category }) => {
+  const [showFilters, setShowFilters] = useState(false);
   const productsData = useProducts();
   const products = category
     ? getProductsByCategory(productsData.allProducts, category)
@@ -46,11 +48,30 @@ const Products = ({ category }) => {
               </span>
               <span>محبوب ترین</span>
             </div>
-            <div className="bg-white flex p-3 gap-3 rounded w-full">
+            <div
+              className="bg-white flex p-3 gap-3 rounded w-full"
+              onClick={() => setShowFilters(true)}
+            >
               <span className="w-6 h-6 text-gray-300">
                 <FilterIcon />
               </span>
               <span>فیلتر</span>
+            </div>
+            {/* filter section modal */}
+            <div
+              className={`fixed inset-0  w-screen h-screen bg-stone-100 bg-opacity-80 ${
+                showFilters ? "z-10" : "-z-10"
+              }`}
+              onClick={() => setShowFilters(false)}
+            >
+              <div
+                className={`fixed transition-all w-full h-2/3 overflow-auto z-20 bg-white right-0 p-4 ${
+                  showFilters ? "bottom-0" : "-bottom-full"
+                }`}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <Filters mobile={true} />
+              </div>
             </div>
           </div>
         </div>
