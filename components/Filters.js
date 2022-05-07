@@ -36,7 +36,7 @@ const getMinMaxPrice = (products) => {
   };
 };
 
-const Filters = () => {
+const Filters = ({ mobile }) => {
   const [showMenu, setShowMenu] = useState({
     brand: false,
     color: false,
@@ -60,11 +60,11 @@ const Filters = () => {
       </span>
       <ul className="flex flex-col gap-4 select-none">
         <li>
-          <div className="flex items-center gap-8 cursor-pointer">
-            <div
-              className="flex items-center gap-2"
-              onClick={() => showHideMenu("brand")}
-            >
+          <div
+            className="flex items-center gap-8 cursor-pointer"
+            onClick={() => showHideMenu("brand")}
+          >
+            <div className="flex items-center gap-2">
               <span className="w-6 h-6">
                 <BrandIcon />
               </span>
@@ -91,11 +91,11 @@ const Filters = () => {
           </ul>
         </li>
         <li>
-          <div className="flex items-center gap-8 cursor-pointer">
-            <div
-              className="flex items-center gap-2"
-              onClick={() => showHideMenu("color")}
-            >
+          <div
+            className="flex items-center gap-8 cursor-pointer"
+            onClick={() => showHideMenu("color")}
+          >
+            <div className="flex items-center gap-2">
               <span className="w-6 h-6">
                 <ColorIcon />
               </span>
@@ -122,11 +122,11 @@ const Filters = () => {
           </ul>
         </li>
         <li>
-          <div className="flex items-center gap-8 cursor-pointer">
-            <div
-              className="flex items-center gap-2"
-              onClick={() => showHideMenu("price")}
-            >
+          <div
+            className="flex items-center gap-8 cursor-pointer"
+            onClick={() => showHideMenu("price")}
+          >
+            <div className="flex items-center gap-2">
               <span className="w-6 h-6">
                 <PriceIcon />
               </span>
@@ -154,13 +154,23 @@ const Filters = () => {
               />
               <div className="flex justify-between gap-1 p-2">
                 <p className="text-sm">{sepratePrice(minMaxPrices.max)}</p>
-                <p className="text-sm border border-orange-600 rounded p-1 text-orange-600 bg-orange-100">{sepratePrice(priceRange)}</p>
+                <p className="text-sm border border-orange-600 rounded p-1 text-orange-600 bg-orange-100">
+                  {sepratePrice(priceRange)}
+                </p>
                 <p className="text-sm">{sepratePrice(minMaxPrices.min)}</p>
               </div>
             </li>
           </ul>
         </li>
       </ul>
+      <div className={`${mobile ? "flex" : "hidden"} gap-4 mt-8`}>
+        <button className="bg-orange-600 rounded cursor-pointer w-full text-white py-2 px-4">
+          تایید
+        </button>
+        <button className="text-orange-600 rounded cursor-pointer w-full border border-orange-600 py-2 px-4">
+          لغو فیلتر
+        </button>
+      </div>
     </>
   );
 };
