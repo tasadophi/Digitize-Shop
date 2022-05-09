@@ -15,7 +15,13 @@ const MobileIcon = () => {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <circle cx={10.5} cy={9.5} r={9.5} fill="#AFAFAF" fillOpacity={0.29} />
+      <circle
+        cx={10.5}
+        cy={9.5}
+        r={9.5}
+        fill="currentColor"
+        fillOpacity={0.1}
+      />
     </svg>
   );
 };
