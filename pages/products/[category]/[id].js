@@ -5,8 +5,6 @@ import {
   getProductsPaths,
   sepratePrice,
 } from "../../../lib/api";
-import SearchIcon from "../../../components/icons/SearchIcon";
-import ChevronIcon from "../../../components/icons/ChevronIcon";
 import CheckIcon from "../../../components/icons/CheckIcon";
 import ShopIcon from "../../../components/icons/ShopIcon";
 import TruckIcon from "../../../components/icons/TruckIcon";
@@ -16,6 +14,8 @@ import GuranteeIcon from "../../../components/icons/GuranteeIcon";
 import Categories from "../../../components/Categories";
 import Layout from "./../../../Layout/Layout";
 import MobileHeader from "../../../components/MobileHeader";
+import Link from "next/link";
+import ChevronIcon from "../../../components/icons/ChevronIcon";
 
 const GetColors = ({ colorCode, selectedColor, setSelectedColor }) => {
   const styles = {
@@ -78,11 +78,27 @@ const Product = ({ category, id }) => {
             <Categories />
           </div>
           <div className="col-span-5 flex flex-col gap-8 lg:col-span-4">
-            <div className="hidden bg-white w-full h-6 rounded-md lg:block">
-              sadasd
+            <div className="flex order-1 w-full h-6 items-center gap-2 py-4 text-sm px-6 rounded-md lg:bg-white">
+              <Link href={`/products/${product.category}`} passHref>
+                <span className="text-orange-600 cursor-pointer">
+                  {product.categoryFa}
+                </span>
+              </Link>
+              <span className="w-4 h-4 rotate-90">
+                <ChevronIcon />
+              </span>
+              <Link href={`/products/${product.categoryEn}`} passHref>
+                <span className="text-orange-600 cursor-pointer">
+                  {product.brand.brandFa}
+                </span>
+              </Link>
+              <span className="w-4 h-4 rotate-90">
+                <ChevronIcon />
+              </span>
+              <span className="text-ellipsis whitespace-nowrap overflow-hidden">{product.model}</span>
             </div>
-            <div className="flex flex-col">
-              <MobileHeader logo={false} title={product.model} />
+            <MobileHeader logo={false} title={product.model} />
+            <div className="flex flex-col order-3">
               <div className="flex flex-col justify-center items-center gap-10 mb-11 rounded lg:flex-row lg:items-start lg:justify-start lg:bg-white lg:px-4 lg:py-8">
                 <div className="w-56 relative h-56">
                   <Image
