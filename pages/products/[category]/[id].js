@@ -15,6 +15,7 @@ import Image from "next/image";
 import GuranteeIcon from "../../../components/icons/GuranteeIcon";
 import Categories from "../../../components/Categories";
 import Layout from "./../../../Layout/Layout";
+import MobileHeader from "../../../components/MobileHeader";
 
 const GetColors = ({ colorCode, selectedColor, setSelectedColor }) => {
   const styles = {
@@ -81,15 +82,7 @@ const Product = ({ category, id }) => {
               sadasd
             </div>
             <div className="flex flex-col">
-              <div className="flex justify-between px-4 my-12 items-center text-slate-800 lg:hidden">
-                <span className="w-8 h-8 bg-white shadow-md rounded-xl p-1 flex justify-center items-center -rotate-90">
-                  <ChevronIcon />
-                </span>
-                <span className="font-medium text-lg">{product.model}</span>
-                <span className="w-8 h-8 bg-white shadow-md rounded p-1 flex justify-center items-center">
-                  <SearchIcon />
-                </span>
-              </div>
+              <MobileHeader logo={false} title={product.model} />
               <div className="flex flex-col justify-center items-center gap-10 mb-11 rounded lg:flex-row lg:items-start lg:justify-start lg:bg-white lg:px-4 lg:py-8">
                 <div className="w-56 relative h-56">
                   <Image

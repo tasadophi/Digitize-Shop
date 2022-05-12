@@ -10,6 +10,7 @@ import FilterIcon from "./icons/FilterIcon";
 import Image from "next/image";
 import { useState } from "react";
 import BottomMenu from "./BottomMenu";
+import MobileHeader from "./MobileHeader";
 
 const titles = {
   mobiles: "گوشی های موبایل",
@@ -30,18 +31,7 @@ const Products = ({ category }) => {
       </Head>
       <main className="lg:container p-6 grid grid-cols-5 gap-4">
         <div className="flex flex-col col-span-5 lg:hidden">
-          <div className="flex justify-between items-center py-6">
-            <Image
-              src="/images/Logo.png"
-              alt="digitize logo"
-              width={50}
-              height={42}
-            />
-            <span className="text-slate-800 font-bold">ساعت هوشمند</span>
-            <span className="w-8 h-8 p-1 bg-white shadow flex justify-center items-center rounded">
-              <SearchIcon />
-            </span>
-          </div>
+          <MobileHeader logo={true} title="گوشی موبایل" />
           <div className="flex items-center justify-between py-6 gap-2 text-sm text-slate-800">
             <div className="bg-white flex p-3 gap-3 items-center rounded w-full">
               <span className="w-6 h-6 text-orange-600">
