@@ -4,17 +4,15 @@ import Head from "next/head";
 import { useProducts } from "../context/state";
 import { getProductsByCategory } from "../lib/api";
 import Categories from "./Categories";
-import SearchIcon from "./icons/SearchIcon";
 import SortIcon from "./icons/SortIcon";
 import FilterIcon from "./icons/FilterIcon";
-import Image from "next/image";
 import { useState } from "react";
 import BottomMenu from "./BottomMenu";
 import MobileHeader from "./MobileHeader";
 
 const titles = {
-  mobiles: "گوشی های موبایل",
-  laptops: "لپتاپ ها",
+  mobiles: "تلفن همراه",
+  laptops: "لپتاپ",
   watches: "ساعت هوشمند",
 };
 
@@ -31,7 +29,7 @@ const Products = ({ category }) => {
       </Head>
       <main className="lg:container p-6 grid grid-cols-5 gap-4">
         <div className="flex flex-col col-span-5 lg:hidden">
-          <MobileHeader logo={true} title="گوشی موبایل" />
+          <MobileHeader logo={true} title={titles[category] || "همه محصولات"} />
           <div className="flex items-center justify-between py-6 gap-2 text-sm text-slate-800">
             <div className="bg-white flex p-3 gap-3 items-center rounded w-full">
               <span className="w-6 h-6 text-orange-600">
@@ -71,7 +69,17 @@ const Products = ({ category }) => {
           <Filters />
         </div>
         <div className="col-span-5 flex flex-col gap-8 lg:col-span-4 mb-16">
-          <div className="hidden bg-white w-full h-6 rounded-md lg:block"></div>
+          <div className="hidden bg-white w-full p-1 gap-2 items-center rounded-md lg:flex">
+            <span className="w-9 h-9 text-orange-600 bg-orange-100 p-1 rounded">
+              <SortIcon />
+            </span>
+            <div className="flex gap-4">
+              <span className="text-slate-800 cursor-pointer">محبوب ترین</span>
+              <span className="text-gray-400 cursor-pointer">پربازدیدترین</span>
+              <span className="text-gray-400 cursor-pointer">گران ترین</span>
+              <span className="text-gray-400 cursor-pointer">ارزان ترین</span>
+            </div>
+          </div>
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4 lg:gap-4 lg:px-0">
             {products.map((product) => (
               <Product key={product.id} product={product} />
