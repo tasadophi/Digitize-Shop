@@ -4,7 +4,7 @@ import ChevronIcon from "./icons/ChevronIcon";
 
 const MobileHeader = ({ logo, title }) => {
   return (
-    <div className="flex justify-between items-center py-6">
+    <div className="flex justify-between items-center py-6 lg:hidden">
       {logo ? (
         <Image
           src="/images/Logo.png"
