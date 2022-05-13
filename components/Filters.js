@@ -36,7 +36,7 @@ const getMinMaxPrice = (products) => {
   };
 };
 
-const Filters = ({ mobile }) => {
+const Filters = ({ setShowFilters }) => {
   const [showMenu, setShowMenu] = useState({
     brand: false,
     color: false,
@@ -52,6 +52,8 @@ const Filters = ({ mobile }) => {
   const showHideMenu = (property) => {
     setShowMenu({ ...showMenu, [property]: !showMenu[property] });
   };
+
+  const hideFilters = () => setShowFilters(false);
 
   return (
     <>
@@ -81,13 +83,15 @@ const Filters = ({ mobile }) => {
               showMenu["brand"] ? "flex" : "hidden"
             }`}
           >
-            {brands.map((brand) => (
-              <CheckBox
-                key={brand.brandEn}
-                label={brand.brandFa}
-                id={brand.brandEn}
-              />
-            ))}
+            <li className="pr-2">
+              {brands.map((brand) => (
+                <CheckBox
+                  key={brand.brandEn}
+                  label={brand.brandFa}
+                  id={brand.brandEn}
+                />
+              ))}
+            </li>
           </ul>
         </li>
         <li>
@@ -112,13 +116,15 @@ const Filters = ({ mobile }) => {
               showMenu["color"] ? "flex" : "hidden"
             }`}
           >
-            {colors.map((color) => (
-              <CheckBox
-                key={color.nameEn}
-                label={color.nameFa}
-                id={color.nameEn}
-              />
-            ))}
+            <li className="pr-2">
+              {colors.map((color) => (
+                <CheckBox
+                  key={color.nameEn}
+                  label={color.nameFa}
+                  id={color.nameEn}
+                />
+              ))}
+            </li>
           </ul>
         </li>
         <li>
@@ -139,13 +145,13 @@ const Filters = ({ mobile }) => {
             </span>
           </div>
           <ul
-            className={`pt-4 flex-col gap-3 ${
+            className={`pt-4 flex-col w-full gap-3 ${
               showMenu["price"] ? "flex" : "hidden"
             }`}
           >
-            <li className="flex flex-col">
+            <li className="flex flex-col pl-4 pr-2">
               <input
-                className="appearance-none rotate-180 cursor-pointer w-full h-2 rounded-lg p-0 bg-orange-100 focus:outline-none focus:ring-0 focus:shadow-nones"
+                className="appearance-none rotate-180 cursor-pointer h-2 rounded-lg p-0 bg-orange-100 focus:outline-none focus:ring-0 focus:shadow-nones"
                 min={minMaxPrices.min}
                 max={minMaxPrices.max}
                 value={priceRange}
@@ -153,21 +159,27 @@ const Filters = ({ mobile }) => {
                 type="range"
               />
               <div className="flex justify-between gap-1 p-2">
-                <p className="text-sm">{sepratePrice(minMaxPrices.max)}</p>
-                <p className="text-sm border border-orange-600 rounded p-1 text-orange-600 bg-orange-100">
+                <p className="text-xs">{sepratePrice(minMaxPrices.max)}</p>
+                <p className="text-xs border border-orange-600 rounded p-1 text-orange-600 bg-orange-100">
                   {sepratePrice(priceRange)}
                 </p>
-                <p className="text-sm">{sepratePrice(minMaxPrices.min)}</p>
+                <p className="text-xs">{sepratePrice(minMaxPrices.min)}</p>
               </div>
             </li>
           </ul>
         </li>
       </ul>
-      <div className={`${mobile ? "flex" : "hidden"} gap-4 mt-8`}>
-        <button className="bg-orange-600 rounded cursor-pointer w-full text-white py-2 px-4">
+      <div className="flex lg:hidden gap-4 mt-8">
+        <button
+          className="bg-orange-600 rounded cursor-pointer w-full text-white py-2 px-4"
+          onClick={hideFilters}
+        >
           تایید
         </button>
-        <button className="text-orange-600 rounded cursor-pointer w-full border border-orange-600 py-2 px-4">
+        <button
+          className="text-orange-600 rounded cursor-pointer w-full border border-orange-600 py-2 px-4"
+          onClick={hideFilters}
+        >
           لغو فیلتر
         </button>
       </div>
