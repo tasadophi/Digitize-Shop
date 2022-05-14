@@ -25,7 +25,7 @@ const Products = ({ category }) => {
   return (
     <>
       <Head>
-        <title>{titles[category]}</title>
+        <title>{titles[category] || "صفحه اصلی"}</title>
       </Head>
       <main className="lg:container p-6 grid grid-cols-5 gap-4">
         <div className="flex flex-col col-span-5 lg:hidden">
