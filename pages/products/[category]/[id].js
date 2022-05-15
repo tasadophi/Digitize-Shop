@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useProducts } from "../../../context/state";
+import { useShop, useShopDispatcher } from "../../../context/state";
 import {
   getProductById,
   getProductsPaths,
@@ -62,9 +62,16 @@ const ProductDetail = ({ name, value }) => {
   );
 };
 
+const inCart = (cart, product) => {
+  return cart.some(
+    (cartItem) => parseInt(cartItem.id) === parseInt(product.id)
+  );
+};
+
 const Product = ({ category, id }) => {
-  const productsData = useProducts();
-  const product = getProductById(productsData.allProducts, category, id);
+  const shopData = useShop();
+  const dispatch = useShopDispatcher();
+  const product = getProductById(shopData.allProducts, category, id);
   const [selectedColor, setSelectedColor] = useState(product.colors[0].hex);
 
   return (
@@ -95,7 +102,9 @@ const Product = ({ category, id }) => {
               <span className="w-4 h-4 rotate-90">
                 <ChevronIcon />
               </span>
-              <span className="text-ellipsis whitespace-nowrap overflow-hidden">{product.model}</span>
+              <span className="text-ellipsis whitespace-nowrap overflow-hidden">
+                {product.model}
+              </span>
             </div>
             <MobileHeader logo={false} title={product.model} />
             <div className="flex flex-col order-3">
@@ -186,15 +195,35 @@ const Product = ({ category, id }) => {
                     <span className="overflow-hidden whitespace-nowrap text-ellipsis self-end text-orange-600 text-xl font-medium">
                       {sepratePrice(product.price)} تومان
                     </span>
-                    <button className="bg-orange-400 cursor-pointer text-white px-8 rounded py-3">
-                      افزودن به سبد خرید
+                    <button
+                      className="bg-orange-400 cursor-pointer text-white px-8 rounded py-3"
+                      onClick={() =>
+                        !inCart(shopData.cart, product) &&
+                        dispatch({ type: "addToCart", product: product })
+                      }
+                    >
+                      {inCart(shopData.cart, product) ? (
+                        <Link href="/cart">رفتن به سبد خرید</Link>
+                      ) : (
+                        "افزودن سبد خرید"
+                      )}
                     </button>
                   </div>
                 </div>
               </div>
               <div className="fixed flex p-4 justify-between items-center w-full rounded bg-white bottom-0 left-0 lg:hidden">
-                <button className="bg-orange-400 cursor-pointer text-white px-8 rounded py-3">
-                  افزودن به سبد خرید
+                <button
+                  className="bg-orange-400 cursor-pointer text-white px-8 rounded py-3"
+                  onClick={() =>
+                    !inCart(shopData.cart, product) &&
+                    dispatch({ type: "addToCart", product: product })
+                  }
+                >
+                  {inCart(shopData.cart, product) ? (
+                    <Link href="/cart">رفتن به سبد خرید</Link>
+                  ) : (
+                    "افزودن سبد خرید"
+                  )}
                 </button>
                 <span className="overflow-hidden whitespace-nowrap text-ellipsis">
                   {sepratePrice(product.price)} تومان
