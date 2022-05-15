@@ -1,25 +1,55 @@
 import React, { useReducer, useContext } from "react";
+import { useEffect } from "react";
 const jsonData = require("./../data.json");
 
-const Products = React.createContext();
-const ProductsDispatcher = React.createContext();
+const Shop = React.createContext();
+const ShopDispatcher = React.createContext();
 
-const reducer = (action) => {
-  return true;
+const getCartItems = () => {
+  const data = localStorage.getItem("cart");
+  if (data) return JSON.parse(data);
+  return [];
+};
+const setCartItems = (cartItems) =>
+  localStorage.setItem("cart", JSON.stringify(cartItems));
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "setCartItems": {
+      return { ...state, cart: action.cart };
+    }
+    case "addToCart": {
+      return { ...state, cart: [...state.cart, action.product] };
+    }
+  }
+};
+
+const initialState = {
+  allProducts: jsonData,
+  cart: [],
 };
 
 const AppWrapper = ({ children }) => {
-  const [products, dispatch] = useReducer(reducer, { allProducts: jsonData });
+  const [shop, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    shop.cart.length && setCartItems(shop.cart);
+  }, [shop.cart]);
+
+  useEffect(() => {
+    dispatch({ type: "setCartItems", cart: getCartItems() });
+  }, []);
+
   return (
-    <Products.Provider value={products}>
-      <ProductsDispatcher.Provider value={dispatch}>
+    <Shop.Provider value={shop}>
+      <ShopDispatcher.Provider value={dispatch}>
         {children}
-      </ProductsDispatcher.Provider>
-    </Products.Provider>
+      </ShopDispatcher.Provider>
+    </Shop.Provider>
   );
 };
 
 export default AppWrapper;
 
-export const useProducts = () => useContext(Products);
-export const useProductsDispatcher = () => useContext(ProductsDispatcher);
+export const useShop = () => useContext(Shop);
+export const useShopDispatcher = () => useContext(ShopDispatcher);
