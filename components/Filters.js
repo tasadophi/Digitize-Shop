@@ -4,7 +4,7 @@ import ColorIcon from "./icons/ColorIcon";
 import PriceIcon from "./icons/PriceIcon";
 import CheckBox from "./CheckBox";
 import { useState } from "react";
-import { useProducts } from "../context/state";
+import { useShop } from "../context/state";
 import { sepratePrice } from "../lib/api";
 
 const getBrands = (products) => {
@@ -42,10 +42,10 @@ const Filters = ({ setShowFilters }) => {
     color: false,
     price: false,
   });
-  const products = useProducts();
-  const minMaxPrices = getMinMaxPrice(products.allProducts);
-  const brands = getBrands(products.allProducts);
-  const colors = getColors(products.allProducts);
+  const shop = useShop();
+  const minMaxPrices = getMinMaxPrice(shop.allProducts);
+  const brands = getBrands(shop.allProducts);
+  const colors = getColors(shop.allProducts);
   const [priceRange, setPriceRange] = useState(minMaxPrices.min);
 
   // handler

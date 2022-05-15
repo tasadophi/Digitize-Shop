@@ -1,7 +1,7 @@
 import Product from "./Product";
 import Filters from "./Filters";
 import Head from "next/head";
-import { useProducts } from "../context/state";
+import { useShop } from "../context/state";
 import { getProductsByCategory } from "../lib/api";
 import Categories from "./Categories";
 import SortIcon from "./icons/SortIcon";
@@ -18,10 +18,10 @@ const titles = {
 
 const Products = ({ category }) => {
   const [showFilters, setShowFilters] = useState(false);
-  const productsData = useProducts();
+  const shopData = useShop();
   const products = category
-    ? getProductsByCategory(productsData.allProducts, category)
-    : productsData.allProducts;
+    ? getProductsByCategory(shopData.allProducts, category)
+    : shopData.allProducts;
   return (
     <>
       <Head>
