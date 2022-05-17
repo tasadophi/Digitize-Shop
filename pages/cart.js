@@ -22,7 +22,7 @@ const CartItem = ({ product }) => {
           {product.model}
         </span>
         <span className="text-ellipsis whitespace-nowrap overflow-hidden font-medium text-orange-600">
-          {product.price} تومان
+          {sepratePrice(product.price)} تومان
         </span>
       </div>
       <div className="flex flex-col justify-self-end items-end  mr-auto justify-between p-2">
@@ -50,24 +50,26 @@ const Cart = () => {
     <Layout>
       <section className="container p-6">
         <MobileHeader logo={false} title="سبد خرید" />
-        <div className="flex flex-col justify-center gap-2">
-          {shop.cart.map((product) => (
-            <CartItem key={product.id} product={product} />
-          ))}
-        </div>
-        <div className="bg-white flex flex-col gap-7 w-full p-7 mt-8 rounded-xl">
-          <div className="flex justify-between">
-            <span className="font-medium text-xl text-slate-800">
-              مجموع قیمت:
-            </span>
-            <span className="font-medium text-orange-600">
-              {sepratePrice(total)} تومان
-            </span>
+        <div className="flex flex-col lg:flex-row lg:gap-4">
+          <div className="flex flex-col justify-center gap-2 lg:w-3/5 lg:justify-start">
+            {shop.cart.map((product) => (
+              <CartItem key={product.id} product={product} />
+            ))}
           </div>
-          <span>کد تخفیف دارید؟</span>
-        </div>
-        <div className="bg-orange-600 mb-12 mt-32 text-2xl rounded-xl py-4 flex justify-center text-white">
-          ادامه فرایند خرید
+          <div className="bg-white flex flex-col gap-7 w-full h-fit p-2 mt-8 mb-12 rounded-xl lg:w-2/5 lg:m-0">
+            <div className="flex justify-between p-4">
+              <span className="font-medium text-xl text-slate-800">
+                مجموع قیمت:
+              </span>
+              <span className="font-medium text-orange-600">
+                {sepratePrice(total)} تومان
+              </span>
+            </div>
+            <span className="p-4">کد تخفیف دارید؟</span>
+            <div className="bg-orange-600 text-2xl rounded-xl py-4 flex justify-center text-white lg:m-0">
+              ادامه فرایند خرید
+            </div>
+          </div>
         </div>
         <BottomMenu />
       </section>
