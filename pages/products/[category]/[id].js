@@ -195,36 +195,38 @@ const Product = ({ category, id }) => {
                     <span className="overflow-hidden whitespace-nowrap text-ellipsis self-end text-orange-600 text-xl font-medium">
                       {sepratePrice(product.price)} تومان
                     </span>
-                    <button
-                      className="bg-orange-400 cursor-pointer text-white px-8 rounded py-3"
-                      onClick={() =>
-                        !inCart(shopData.cart, product) &&
-                        dispatch({ type: "addToCart", product: product })
-                      }
-                    >
-                      {inCart(shopData.cart, product) ? (
+                    {inCart(shopData.cart, product) ? (
+                      <span className="goToCartLink bg-orange-400 text-center cursor-pointer text-white rounded">
                         <Link href="/cart">رفتن به سبد خرید</Link>
-                      ) : (
-                        "افزودن سبد خرید"
-                      )}
-                    </button>
+                      </span>
+                    ) : (
+                      <button
+                        className="bg-orange-400 cursor-pointer text-white rounded px-8 py-3"
+                        onClick={() =>
+                          dispatch({ type: "addToCart", product: product })
+                        }
+                      >
+                        افزودن سبد خرید
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
               <div className="fixed flex p-4 justify-between items-center w-full rounded bg-white bottom-0 left-0 lg:hidden">
-                <button
-                  className="bg-orange-400 cursor-pointer text-white px-8 rounded py-3"
-                  onClick={() =>
-                    !inCart(shopData.cart, product) &&
-                    dispatch({ type: "addToCart", product: product })
-                  }
-                >
-                  {inCart(shopData.cart, product) ? (
+                {inCart(shopData.cart, product) ? (
+                  <span className="goToCartLink bg-orange-400 text-center cursor-pointer text-white rounded">
                     <Link href="/cart">رفتن به سبد خرید</Link>
-                  ) : (
-                    "افزودن سبد خرید"
-                  )}
-                </button>
+                  </span>
+                ) : (
+                  <button
+                    className="bg-orange-400 cursor-pointer text-white rounded px-8 py-3"
+                    onClick={() =>
+                      dispatch({ type: "addToCart", product: product })
+                    }
+                  >
+                    افزودن سبد خرید
+                  </button>
+                )}
                 <span className="overflow-hidden whitespace-nowrap text-ellipsis">
                   {sepratePrice(product.price)} تومان
                 </span>
