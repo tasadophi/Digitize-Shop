@@ -11,6 +11,13 @@ body {
   background-color: #f4f4f4;
 }
 
+.goToCartLink a {
+  display: block;
+  padding: 0.75rem 2rem;
+  width: 100%;
+  height: 100%;
+}
+
 input[type="range"]::-webkit-slider-thumb {
   @apply bg-orange-600;
   height: 16px;
