@@ -80,7 +80,7 @@ const Product = ({ category, id }) => {
         <title>{product.model}</title>
       </Head>
       <Layout>
-        <div className="lg:container grid grid-cols-5 p-6 gap-4">
+        <div className="lg:container grid grid-cols-5 p-6 gap-4 footerWrapper">
           <div className="hidden col-span-1 p-6 bg-white rounded-xl h-fit max-h-[650px] lg:block">
             <Categories />
           </div>

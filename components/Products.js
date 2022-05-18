@@ -27,7 +27,7 @@ const Products = ({ category }) => {
       <Head>
         <title>{titles[category] || "صفحه اصلی"}</title>
       </Head>
-      <main className="lg:container p-6 grid grid-cols-5 gap-4">
+      <main className="lg:container p-6 grid grid-cols-5 gap-4 footerWrapper">
         <div className="flex flex-col col-span-5 lg:hidden">
           <MobileHeader logo={true} title={titles[category] || "همه محصولات"} />
           <div className="flex items-center justify-between py-6 gap-2 text-sm text-slate-800">
