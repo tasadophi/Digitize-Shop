@@ -5,6 +5,7 @@ import PriceIcon from "./icons/PriceIcon";
 import CheckBox from "./CheckBox";
 import { useState } from "react";
 import { useShop } from "../context/state";
+import { useRouter } from "next/router";
 import { sepratePrice } from "../lib/api";
 
 const getBrands = (products) => {
@@ -36,7 +37,7 @@ const getMinMaxPrice = (products) => {
   };
 };
 
-const Filters = ({ setShowFilters }) => {
+const Filters = ({ setShowFilters, category }) => {
   const [showMenu, setShowMenu] = useState({
     brand: false,
     color: false,
@@ -47,6 +48,7 @@ const Filters = ({ setShowFilters }) => {
   const brands = getBrands(shop.allProducts);
   const colors = getColors(shop.allProducts);
   const [priceRange, setPriceRange] = useState(minMaxPrices.min);
+  const router = useRouter();
 
   // handler
   const showHideMenu = (property) => {
@@ -89,6 +91,9 @@ const Filters = ({ setShowFilters }) => {
                   key={brand.brandEn}
                   label={brand.brandFa}
                   id={brand.brandEn}
+                  category={category}
+                  checked={router.query["brand" + brand.brandEn] ? true : false}
+                  type="brand"
                 />
               ))}
             </li>
@@ -122,6 +127,9 @@ const Filters = ({ setShowFilters }) => {
                   key={color.nameEn}
                   label={color.nameFa}
                   id={color.nameEn}
+                  category={category}
+                  checked={router.query["colors" + color.nameEn] ? true : false}
+                  type="colors"
                 />
               ))}
             </li>
