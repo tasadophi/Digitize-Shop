@@ -1,8 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
-import FilterIcon from "./icons/FilterIcon";
 import SearchIcon from "./icons/SearchIcon";
-import SortIcon from "./icons/SortIcon";
 const Header = () => {
   return (
     <header className="lg:container">
