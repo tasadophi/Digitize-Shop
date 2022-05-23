@@ -9,6 +9,7 @@ import FilterIcon from "./icons/FilterIcon";
 import { useState } from "react";
 import BottomMenu from "./BottomMenu";
 import MobileHeader from "./MobileHeader";
+import React from "react";
 
 const titles = {
   mobiles: "تلفن همراه",
@@ -20,8 +21,8 @@ const Products = ({ category }) => {
   const [showFilters, setShowFilters] = useState(false);
   const shopData = useShop();
   const products = category
-    ? getProductsByCategory(shopData.allProducts, category)
-    : shopData.allProducts;
+    ? getProductsByCategory(shopData.products, category)
+    : shopData.products;
   return (
     <>
       <Head>
@@ -48,13 +49,13 @@ const Products = ({ category }) => {
             </div>
           </div>
         </div>
-        <div className="col-span-1 max-h-[600px] overflow-auto rounded-xl bg-white">
+        <div className="col-span-1 max-h-[500px] overflow-auto rounded-xl bg-white no-scrollbar">
           <div className="hidden px-6 pt-6 lg:block">
             <Categories />
           </div>
           {/* <Filters /> */}
           <div
-            className={`fixed inset-0 bg-stone-100 pr-6 bg-opacity-80 lg:static lg:w-fit lg:h-fit lg:bg-white lg:-z-10 ${
+            className={`fixed inset-0 bg-stone-100 px-6 pb-6 bg-opacity-80 lg:static lg:w-fit lg:h-fit lg:bg-white lg:-z-10 ${
               showFilters ? "z-20 w-screen h-screen" : "-z-10"
             }`}
             onClick={() => setShowFilters(false)}
@@ -93,4 +94,4 @@ const Products = ({ category }) => {
   );
 };
 
-export default Products;
+export default React.memo(Products);

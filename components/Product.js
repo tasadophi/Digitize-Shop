@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { sepratePrice } from "../lib/api";
+import React from "react";
 
 const getColors = (colorCode) => {
   const styles = {
@@ -51,4 +52,4 @@ const Product = ({ product }) => {
   );
 };
 
-export default Product;
+export default React.memo(Product);

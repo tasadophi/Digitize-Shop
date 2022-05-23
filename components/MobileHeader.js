@@ -1,6 +1,7 @@
 import Image from "next/image";
 import SearchIcon from "./icons/SearchIcon";
 import ChevronIcon from "./icons/ChevronIcon";
+import React from "react";
 
 const MobileHeader = ({ logo, title }) => {
   return (
@@ -25,4 +26,4 @@ const MobileHeader = ({ logo, title }) => {
   );
 };
 
-export default MobileHeader;
+export default React.memo(MobileHeader);
