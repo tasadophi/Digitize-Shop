@@ -7,6 +7,8 @@ import { useState } from "react";
 import { useShop } from "../context/state";
 import { useRouter } from "next/router";
 import { sepratePrice } from "../lib/api";
+import React from "react";
+import { useEffect } from "react";
 
 const getBrands = (products) => {
   const allBrands = products.map((product) => product.brand);
@@ -47,15 +49,38 @@ const Filters = ({ setShowFilters, category }) => {
   const minMaxPrices = getMinMaxPrice(shop.allProducts);
   const brands = getBrands(shop.allProducts);
   const colors = getColors(shop.allProducts);
-  const [priceRange, setPriceRange] = useState(minMaxPrices.min);
   const router = useRouter();
+  const [priceRange, setPriceRange] = useState(null);
 
-  // handler
+  useEffect(() => {
+    if (router.query["price"]) setPriceRange(parseInt(router.query["price"]));
+    else setPriceRange(minMaxPrices.min);
+  }, [router.query]);
+
+  // handlers
   const showHideMenu = (property) => {
     setShowMenu({ ...showMenu, [property]: !showMenu[property] });
   };
 
+  const filterByPrice = (e) => {
+    setPriceRange(e.target.value);
+    if (parseInt(e.target.value) > minMaxPrices.min) {
+      router.query["price"] = e.target.value;
+    } else delete router.query["price"];
+    router.pathname === "/"
+      ? router.push(router, { query: router.query }, { shallow: true })
+      : router.replace(router, {}, { shallow: true });
+  };
+
   const hideFilters = () => setShowFilters(false);
+
+  const removeFilters = () => {
+    router.query = {};
+    router.pathname === "/"
+      ? router.push(router, { query: router.query }, { shallow: true })
+      : router.replace(router, {}, { shallow: true });
+    hideFilters();
+  };
 
   return (
     <>
@@ -163,7 +188,7 @@ const Filters = ({ setShowFilters, category }) => {
                 min={minMaxPrices.min}
                 max={minMaxPrices.max}
                 value={priceRange}
-                onChange={(e) => setPriceRange(e.target.value)}
+                onChange={filterByPrice}
                 type="range"
               />
               <div className="flex justify-between gap-1 p-2">
@@ -186,7 +211,7 @@ const Filters = ({ setShowFilters, category }) => {
         </button>
         <button
           className="text-orange-600 rounded cursor-pointer w-full border border-orange-600 py-2 px-4"
-          onClick={hideFilters}
+          onClick={removeFilters}
         >
           لغو فیلتر
         </button>
@@ -195,4 +220,4 @@ const Filters = ({ setShowFilters, category }) => {
   );
 };
 
-export default Filters;
+export default React.memo(Filters);
