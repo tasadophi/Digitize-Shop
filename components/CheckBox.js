@@ -1,16 +1,24 @@
-import { useState } from "react";
+import { useRouter } from "next/router";
+import React from "react";
 
-const CheckBox = ({ label, id }) => {
-  const [checked, setChecked] = useState(false);
+const CheckBox = ({ label, id, type, checked }) => {
+  const router = useRouter();
+  const checkHandler = () => {
+    const newValue = !checked;
+    if (newValue) {
+      router.query[type + id] = true;
+    } else delete router.query[type + id];
+    router.pathname === "/"
+      ? router.push(router, { query: router.query }, { shallow: true })
+      : router.replace(router, {}, { shallow: true });
+  };
 
   return (
     <div className="w-fit">
       <input
         id={id}
         type="checkbox"
-        onChange={() => {
-          setChecked(!checked);
-        }}
+        onChange={checkHandler}
         checked={checked}
         value={checked}
         className="hidden"
@@ -30,4 +38,4 @@ const CheckBox = ({ label, id }) => {
   );
 };
 
-export default CheckBox;
+export default React.memo(CheckBox);
