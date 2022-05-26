@@ -44,7 +44,7 @@ const CategoryChild = ({ title, src, category, query }) => {
 
 const Categories = () => {
   return (
-    <section className="p-6">
+    <section className="p-6 lg:hidden">
       <Head>
         <title>دسته بندی</title>
       </Head>
