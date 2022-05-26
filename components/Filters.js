@@ -50,7 +50,7 @@ const Filters = ({ setShowFilters, category }) => {
   const brands = getBrands(shop.allProducts);
   const colors = getColors(shop.allProducts);
   const router = useRouter();
-  const [priceRange, setPriceRange] = useState(null);
+  const [priceRange, setPriceRange] = useState(minMaxPrices.min);
 
   useEffect(() => {
     if (router.query["price"]) setPriceRange(parseInt(router.query["price"]));
@@ -75,7 +75,8 @@ const Filters = ({ setShowFilters, category }) => {
   const hideFilters = () => setShowFilters(false);
 
   const removeFilters = () => {
-    router.query = {};
+    for (let query in router.query)
+      if (query !== "category") delete router.query[query];
     router.pathname === "/"
       ? router.push(router, { query: router.query }, { shallow: true })
       : router.replace(router, {}, { shallow: true });
