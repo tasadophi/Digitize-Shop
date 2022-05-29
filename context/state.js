@@ -30,7 +30,7 @@ const reducer = (state, action) => {
     }
     case "increase": {
       const newCart = state.cart.map(({ ...item }) => {
-        if (item.id === action.id) item.count++;
+        if (item.unique === action.unique) item.count++;
         return item;
       });
       return {
@@ -39,12 +39,12 @@ const reducer = (state, action) => {
       };
     }
     case "decrease": {
-      const cartItem = state.cart.find((item) => item.id === action.id);
+      const cartItem = state.cart.find((item) => item.unique === action.unique);
       const newCart =
         cartItem.count === 1
-          ? state.cart.filter((item) => item.id !== action.id)
+          ? state.cart.filter((item) => item.unique !== action.unique)
           : state.cart.map(({ ...item }) => {
-              if (item.id === action.id) item.count--;
+              if (item.unique === action.unique) item.count--;
               return item;
             });
       return {
@@ -53,7 +53,9 @@ const reducer = (state, action) => {
       };
     }
     case "remove": {
-      const newCart = state.cart.filter((item) => item.id !== action.id);
+      const newCart = state.cart.filter(
+        (item) => item.unique !== action.unique
+      );
       return {
         ...state,
         cart: newCart,
