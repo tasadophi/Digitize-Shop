@@ -12,27 +12,39 @@ const CartItem = ({ product }) => {
   const dispatch = useShopDispatcher();
   return (
     <div className="w-full flex gap-2 bg-white rounded-xl">
-      <div className="relative w-14 h-24 mr-4">
-        <Image
-          src={product.image}
-          alt="iphone"
-          layout="fill"
-          objectFit="contain"
-        />
-      </div>
-      <div className="flex flex-col justify-evenly overflow-hidden text-sm sm:text-lg">
-        <span className="text-ellipsis whitespace-nowrap overflow-hidden">
-          {product.model}
-        </span>
-        <span className="text-ellipsis whitespace-nowrap overflow-hidden font-medium text-orange-600">
-          {sepratePrice(product.price)} تومان
-        </span>
-      </div>
+      <Link href={`/products/${product.category}/${product.id}`} passHref>
+        <div className="relative w-14 h-24 mr-4">
+          <Image
+            src={product.image}
+            alt="iphone"
+            layout="fill"
+            objectFit="contain"
+          />
+        </div>
+      </Link>
+      <Link href={`/products/${product.category}/${product.id}`} passHref>
+        <div className="flex flex-col justify-evenly overflow-hidden text-sm sm:text-lg">
+          <span className="text-ellipsis whitespace-nowrap overflow-hidden">
+            {product.model}
+          </span>
+          <span
+            key={product.color}
+            style={{ backgroundColor: product.color }}
+            className="w-4 h-4 rounded-full flex justify-center items-center"
+          ></span>
+          <span className="text-ellipsis whitespace-nowrap overflow-hidden font-medium text-orange-600">
+            {sepratePrice(product.price * product.count)} تومان
+          </span>
+        </div>
+      </Link>
       <div className="flex flex-col justify-self-end items-end  mr-auto justify-between p-2 select-none">
         <span
           className="w-3 h-3 text-orange-400 cursor-pointer"
           onClick={() => {
-            dispatch({ type: "remove", id: product.id });
+            dispatch({
+              type: "remove",
+              unique: product.unique,
+            });
           }}
         >
           <XIcon />
@@ -40,7 +52,9 @@ const CartItem = ({ product }) => {
         <div className="flex items-center gap-1">
           <span
             className="w-5 h-5 bg-gray-200 cursor-pointer text-gray-600 flex justify-center items-center rounded-full"
-            onClick={() => dispatch({ type: "increase", id: product.id })}
+            onClick={() =>
+              dispatch({ type: "increase", unique: product.unique })
+            }
           >
             +
           </span>
@@ -49,7 +63,9 @@ const CartItem = ({ product }) => {
           </span>
           <span
             className="w-5 h-5 bg-orange-200 cursor-pointer text-orange-600 flex justify-center items-center rounded-full"
-            onClick={() => dispatch({ type: "decrease", id: product.id })}
+            onClick={() =>
+              dispatch({ type: "decrease", unique: product.unique })
+            }
           >
             -
           </span>
@@ -85,7 +101,7 @@ const Cart = () => {
             } flex-col justify-center gap-2 lg:w-3/5 lg:justify-start`}
           >
             {shop.cart.map((product) => (
-              <CartItem key={product.id} product={product} />
+              <CartItem key={product.unique} product={product} />
             ))}
           </div>
           <div
