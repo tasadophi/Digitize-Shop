@@ -94,7 +94,15 @@ const Product = ({ category, id }) => {
               <span className="w-4 h-4 rotate-90">
                 <ChevronIcon />
               </span>
-              <Link href={`/products/${product.categoryEn}`} passHref>
+              <Link
+                href={{
+                  pathname: `/products/${product.category}`,
+                  query: {
+                    [`brand${product.brand.brandEn}`]: true,
+                  },
+                }}
+                passHref
+              >
                 <span className="text-orange-600 cursor-pointer">
                   {product.brand.brandFa}
                 </span>
