@@ -62,9 +62,9 @@ const ProductDetail = ({ name, value }) => {
   );
 };
 
-const inCart = (cart, product) => {
+const inCart = (cart, product, selectedColor) => {
   return cart.some(
-    (cartItem) => parseInt(cartItem.id) === parseInt(product.id)
+    (cartItem) => cartItem.unique === product.id + selectedColor
   );
 };
 
@@ -73,6 +73,17 @@ const Product = ({ category, id }) => {
   const dispatch = useShopDispatcher();
   const product = getProductById(shopData.allProducts, category, id);
   const [selectedColor, setSelectedColor] = useState(product.colors[0].hex);
+
+  const addToCart = () => {
+    dispatch({
+      type: "addToCart",
+      product: {
+        ...product,
+        unique: product.id + selectedColor,
+        color: selectedColor,
+      },
+    });
+  };
 
   return (
     <>
@@ -203,16 +214,14 @@ const Product = ({ category, id }) => {
                     <span className="overflow-hidden whitespace-nowrap text-ellipsis self-end text-orange-600 text-xl font-medium">
                       {sepratePrice(product.price)} تومان
                     </span>
-                    {inCart(shopData.cart, product) ? (
+                    {inCart(shopData.cart, product, selectedColor) ? (
                       <span className="goToCartLink bg-orange-400 text-center cursor-pointer text-white rounded">
                         <Link href="/cart">رفتن به سبد خرید</Link>
                       </span>
                     ) : (
                       <button
                         className="bg-orange-400 cursor-pointer text-white rounded px-8 py-3"
-                        onClick={() =>
-                          dispatch({ type: "addToCart", product: product })
-                        }
+                        onClick={addToCart}
                       >
                         افزودن سبد خرید
                       </button>
@@ -221,16 +230,14 @@ const Product = ({ category, id }) => {
                 </div>
               </div>
               <div className="fixed flex p-4 justify-between items-center w-full rounded bg-white bottom-0 left-0 lg:hidden">
-                {inCart(shopData.cart, product) ? (
+                {inCart(shopData.cart, product, selectedColor) ? (
                   <span className="goToCartLink bg-orange-400 text-center cursor-pointer text-white rounded">
                     <Link href="/cart">رفتن به سبد خرید</Link>
                   </span>
                 ) : (
                   <button
                     className="bg-orange-400 cursor-pointer text-white rounded px-8 py-3"
-                    onClick={() =>
-                      dispatch({ type: "addToCart", product: product })
-                    }
+                    onClick={addToCart}
                   >
                     افزودن سبد خرید
                   </button>
