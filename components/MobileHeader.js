@@ -58,7 +58,7 @@ const MobileHeader = ({ logo, title }) => {
           />
         </div>
         <div
-          className={`flex-col bg-white absolute top-full w-full max-h-36 shadow no-scrollbar overflow-auto ${
+          className={`flex-col bg-white absolute top-full w-full max-h-40 shadow no-scrollbar overflow-auto ${
             searchedProducts.length && onSearch
               ? "flex rounded-bl rounded-br"
               : "hidden"
@@ -67,14 +67,15 @@ const MobileHeader = ({ logo, title }) => {
           {searchedProducts[0] !== "false" ? (
             searchedProducts.map((product) => {
               return (
-                <div
+                <Link
                   key={product.id}
-                  className="w-full bg-white px-2 py-2 border-b whitespace-nowrap text-ellipsis overflow-hidden border-gray-300"
+                  href={`/products/${product.category}/${product.id}`}
+                  passHref
                 >
-                  <Link href={`/products/${product.category}/${product.id}`}>
+                  <div className="w-full bg-white p-2 min-h-[3rem] border-b whitespace-nowrap text-ellipsis overflow-x-hidden border-gray-300">
                     {product.model}
-                  </Link>
-                </div>
+                  </div>
+                </Link>
               );
             })
           ) : (
