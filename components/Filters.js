@@ -10,8 +10,13 @@ import { sepratePrice } from "../lib/api";
 import React from "react";
 import { useEffect } from "react";
 
-const getBrands = (products) => {
-  const allBrands = products.map((product) => product.brand);
+const getBrands = (products, category) => {
+  const allBrands = [];
+  products.forEach((product) => {
+    if (category) {
+      if (product.category === category) allBrands.push(product.brand);
+    } else return allBrands.push(product.brand);
+  });
   return allBrands.filter((brand, index, arrey) => {
     return (
       index === arrey.findIndex((value) => value.brandEn === brand.brandEn)
@@ -19,19 +24,26 @@ const getBrands = (products) => {
   });
 };
 
-const getColors = (products) => {
+const getColors = (products, category) => {
   const allColors = [];
   products.forEach((product) => {
-    product.colors.forEach((color) => allColors.push(color));
+    if (category) {
+      if (product.category === category) {
+        product.colors.forEach((color) => allColors.push(color));
+      }
+    } else product.colors.forEach((color) => allColors.push(color));
   });
   return allColors.filter((color, index, arrey) => {
     return index === arrey.findIndex((value) => value.nameEn === color.nameEn);
   });
 };
 
-const getMinMaxPrice = (products) => {
-  const allPrices = products.map((product) => {
-    return product.price;
+const getMinMaxPrice = (products, category) => {
+  const allPrices = [];
+  products.forEach((product) => {
+    if (category) {
+      if (product.category === category) allPrices.push(product.price);
+    } else allPrices.push(product.price);
   });
   return {
     min: Math.min(...allPrices),
@@ -46,9 +58,9 @@ const Filters = ({ setShowFilters, category }) => {
     price: false,
   });
   const shop = useShop();
-  const minMaxPrices = getMinMaxPrice(shop.allProducts);
-  const brands = getBrands(shop.allProducts);
-  const colors = getColors(shop.allProducts);
+  const minMaxPrices = getMinMaxPrice(shop.allProducts, category);
+  const brands = getBrands(shop.allProducts, category);
+  const colors = getColors(shop.allProducts, category);
   const router = useRouter();
   const [priceRange, setPriceRange] = useState(minMaxPrices.min);
 

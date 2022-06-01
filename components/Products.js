@@ -66,7 +66,7 @@ const Products = ({ category }) => {
               }`}
               onClick={(e) => e.stopPropagation()}
             >
-              <Filters setShowFilters={setShowFilters} />
+              <Filters setShowFilters={setShowFilters} category={category} />
             </div>
           </div>
         </div>
