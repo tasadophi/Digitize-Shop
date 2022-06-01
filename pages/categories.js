@@ -3,6 +3,7 @@ import BottomMenu from "../components/BottomMenu";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
+const brands = require("./../brands.json");
 
 const CategoryTitle = ({ title, src, category }) => {
   return (
@@ -59,18 +60,15 @@ const Categories = () => {
           <div className="flex flex-col justify-between h-56 overflow-hidden">
             <span className="self-end text-orange-600">مشاهده همه</span>
             <div className="flex gap-2 overflow-auto">
-              <CategoryChild
-                title="اپل"
-                src="/images/apple.png"
-                category="mobiles"
-                query="brandapple"
-              />
-              <CategoryChild
-                title="شیائومی"
-                src="/images/xiaomi.png"
-                category="mobiles"
-                query="brandxiaomi"
-              />
+              {brands.mobiles.map((brand) => (
+                <CategoryChild
+                  key={brand.en + "mobiles"}
+                  title={brand.fa}
+                  src={brand.image}
+                  category="mobiles"
+                  query={"brand" + brand.en}
+                />
+              ))}
             </div>
           </div>
         </div>
@@ -83,18 +81,15 @@ const Categories = () => {
           <div className="flex flex-col justify-between h-56 overflow-hidden">
             <span className="self-end text-orange-600">مشاهده همه</span>
             <div className="flex gap-2 overflow-auto">
-              <CategoryChild
-                title="ایسوس"
-                src="/images/asus.png"
-                category="laptops"
-                query="brandasus"
-              />
-              <CategoryChild
-                title="لنوو"
-                src="/images/lenovo.png"
-                category="laptops"
-                query="brandlenovo"
-              />
+              {brands.laptops.map((brand) => (
+                <CategoryChild
+                  key={brand.en + "laptops"}
+                  title={brand.fa}
+                  src={brand.image}
+                  category="laptops"
+                  query={"brand" + brand.en}
+                />
+              ))}
             </div>
           </div>
         </div>
@@ -107,18 +102,15 @@ const Categories = () => {
           <div className="flex flex-col justify-between h-56 overflow-hidden">
             <span className="self-end text-orange-600">مشاهده همه</span>
             <div className="flex gap-2 overflow-auto">
-              <CategoryChild
-                title="اپل"
-                src="/images/apple.png"
-                category="watches"
-                query="brandapple"
-              />
-              <CategoryChild
-                title="شیائومی"
-                src="/images/xiaomi.png"
-                category="watches"
-                query="brandxiaomi"
-              />
+              {brands.watches.map((brand) => (
+                <CategoryChild
+                  key={brand.en + "watches"}
+                  title={brand.fa}
+                  src={brand.image}
+                  category="watches"
+                  query={"brand" + brand.en}
+                />
+              ))}
             </div>
           </div>
         </div>
