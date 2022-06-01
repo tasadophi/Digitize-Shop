@@ -26,7 +26,13 @@ const Product = ({ product }) => {
           <Image
             src={product.image}
             alt={product.model}
-            width={140}
+            width={
+              product.category === "mobiles"
+                ? 140
+                : product.category === "laptops"
+                ? 220
+                : 140
+            }
             height={165}
           />
         </div>
@@ -37,7 +43,9 @@ const Product = ({ product }) => {
           </div>
         </div>
         <div className="flex flex-col text-sm gap-2 pb-2 border-b border-orange-200">
-          <span className="whitespace-nowrap text-ellipsis overflow-hidden">{product.model}</span>
+          <span className="whitespace-nowrap text-ellipsis overflow-hidden">
+            {product.model}
+          </span>
           <span className="self-end text-orange-600 font-bold">
             {sepratePrice(product.price)} تومان
           </span>
