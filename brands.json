@@ -1,0 +1,15 @@
+{
+  "mobiles": [
+    { "en": "apple", "fa": "اپل", "image": "/images/apple.png" },
+    { "en": "xiaomi", "fa": "شیائومی", "image": "/images/xiaomi.png" },
+    { "en": "samsung", "fa": "سامسونگ", "image": "/images/samsung.png" }
+  ],
+  "laptops": [
+    { "en": "asus", "fa": "ایسوس", "image": "/images/asus.png" },
+    { "en": "lenovo", "fa": "لنوو", "image": "/images/lenovo.png" }
+  ],
+  "watches": [
+    { "en": "apple", "fa": "اپل", "image": "/images/apple.png" },
+    { "en": "xiaomi", "fa": "شیائومی", "image": "/images/xiaomi.png" }
+  ]
+}
