@@ -2,12 +2,19 @@
   {
     "id": 1,
     "category": "mobiles",
-    "brand": "apple",
-    "brandFa": "اپل",
+    "categoryFa": "تلفن همراه",
+    "brand": {
+      "brandEn": "apple",
+      "brandFa": "اپل"
+    },
     "model": "گوشی اپل آیفون 13",
-    "image": "/images/iphone2.png",
+    "modelEn": "Apple iphone 13",
+    "image": "/images/iphone5.png",
     "price": 29300000,
-    "colors": ["#000", "#2563eb", "#dc2626"],
+    "colors": [
+      { "nameFa": "مشکی", "nameEn": "black", "hex": "#000" },
+      { "nameFa": "قرمز", "nameEn": "red", "hex": "#dc2626" }
+    ],
     "specifications": [
       {
         "nameFa": "حافظه داخلی",
@@ -26,12 +33,20 @@
   {
     "id": 2,
     "category": "mobiles",
-    "brand": "apple",
-    "brandFa": "اپل",
+    "categoryFa": "تلفن همراه",
+    "brand": {
+      "brandEn": "apple",
+      "brandFa": "اپل"
+    },
     "model": "گوشی اپل آیفون 13 پرو",
+    "modelEn": "Apple iphone 13 pro",
     "image": "/images/iphone3.png",
     "price": 35430000,
-    "colors": ["#000", "#2563eb", "#dc2626"],
+    "colors": [
+      { "nameFa": "مشکی", "nameEn": "black", "hex": "#000" },
+      { "nameFa": "آبی", "nameEn": "blue", "hex": "#2563eb" },
+      { "nameFa": "قرمز", "nameEn": "red", "hex": "#dc2626" }
+    ],
     "specifications": [
       {
         "nameFa": "حافظه داخلی",
@@ -50,12 +65,20 @@
   {
     "id": 3,
     "category": "mobiles",
-    "brand": "apple",
-    "brandFa": "اپل",
+    "categoryFa": "تلفن همراه",
+    "brand": {
+      "brandEn": "apple",
+      "brandFa": "اپل"
+    },
     "model": "گوشی اپل آیفون 13 پرومکس",
+    "modelEn": "Apple iphone 13 pro max",
     "image": "/images/iphone4.png",
     "price": 43550000,
-    "colors": ["#000", "#2563eb", "#dc2626"],
+    "colors": [
+      { "nameFa": "مشکی", "nameEn": "black", "hex": "#000" },
+      { "nameFa": "آبی", "nameEn": "blue", "hex": "#2563eb" },
+      { "nameFa": "قرمز", "nameEn": "red", "hex": "#dc2626" }
+    ],
     "specifications": [
       {
         "nameFa": "حافظه داخلی",
@@ -68,6 +91,334 @@
       {
         "nameFa": "سایز صفحه نمایش",
         "value": "6.7 اینچ"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "category": "mobiles",
+    "categoryFa": "تلفن همراه",
+    "brand": {
+      "brandEn": "samsung",
+      "brandFa": "سامسونگ"
+    },
+    "model": "گوشی سامسونگ گلکسی S22 5G",
+    "modelEn": "Samsung Galaxy S22 5G",
+    "image": "/images/S22.png",
+    "price": 32400000,
+    "colors": [
+      { "nameFa": "مشکی", "nameEn": "black", "hex": "#000" },
+      { "nameFa": "سبز", "nameEn": "green", "hex": "#14532d" }
+    ],
+    "specifications": [
+      {
+        "nameFa": "حافظه داخلی",
+        "value": "256 گیگابایت"
+      },
+      {
+        "nameFa": "شبکه های ارتباطی",
+        "value": "2G 3G 4G 5G"
+      },
+      {
+        "nameFa": "سایز صفحه نمایش",
+        "value": "6.1 اینچ"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "category": "mobiles",
+    "categoryFa": "تلفن همراه",
+    "brand": {
+      "brandEn": "samsung",
+      "brandFa": "سامسونگ"
+    },
+    "model": "گوشی سامسونگ گلکسی S21 FE 5G",
+    "modelEn": "Samsung Galaxy S21 FE 5G",
+    "image": "/images/S21fe.png",
+    "price": 17254000,
+    "colors": [
+      { "nameFa": "مشکی", "nameEn": "black", "hex": "#000" },
+      { "nameFa": "بنفش", "nameEn": "purple", "hex": "#c084fc" }
+    ],
+    "specifications": [
+      {
+        "nameFa": "حافظه داخلی",
+        "value": "128 گیگابایت"
+      },
+      {
+        "nameFa": "شبکه های ارتباطی",
+        "value": "2G 3G 4G 5G"
+      },
+      {
+        "nameFa": "سایز صفحه نمایش",
+        "value": "6.4 اینچ"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "category": "mobiles",
+    "categoryFa": "تلفن همراه",
+    "brand": {
+      "brandEn": "xiaomi",
+      "brandFa": "شیائومی"
+    },
+    "model": "گوشی شیائومی 11T pro 5G",
+    "modelEn": "Xiaomi 11T Pro 5G",
+    "image": "/images/11tpro.png",
+    "price": 13569000,
+    "colors": [
+      { "nameFa": "مشکی", "nameEn": "black", "hex": "#000" },
+      { "nameFa": "آبی", "nameEn": "blue", "hex": "#2563eb" }
+    ],
+    "specifications": [
+      {
+        "nameFa": "حافظه داخلی",
+        "value": "256 گیگابایت"
+      },
+      {
+        "nameFa": "شبکه های ارتباطی",
+        "value": "2G 3G 4G 5G"
+      },
+      {
+        "nameFa": "سایز صفحه نمایش",
+        "value": "6.7 اینچ"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "category": "mobiles",
+    "categoryFa": "تلفن همراه",
+    "brand": {
+      "brandEn": "xiaomi",
+      "brandFa": "شیائومی"
+    },
+    "model": "گوشی شیائومی 12 Pro 5G",
+    "modelEn": "Xiaomi 12 Pro 5G",
+    "image": "/images/12pro.png",
+    "price": 24629000,
+    "colors": [
+      { "nameFa": "مشکی", "nameEn": "black", "hex": "#000" },
+      { "nameFa": "آبی", "nameEn": "blue", "hex": "#2563eb" }
+    ],
+    "specifications": [
+      {
+        "nameFa": "حافظه داخلی",
+        "value": "256 گیگابایت"
+      },
+      {
+        "nameFa": "شبکه های ارتباطی",
+        "value": "2G 3G 4G 5G"
+      },
+      {
+        "nameFa": "سایز صفحه نمایش",
+        "value": "6.55 اینچ"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "category": "laptops",
+    "categoryFa": "لپتاپ",
+    "brand": {
+      "brandEn": "asus",
+      "brandFa": "ایسوس"
+    },
+    "model": "لپتاپ 16 اینچی ایسوس مدل Zephyrus M16",
+    "modelEn": "Asus Zephyrus M16",
+    "image": "/images/m16.png",
+    "price": 54320000,
+    "colors": [{ "nameFa": "مشکی", "nameEn": "black", "hex": "#000" }],
+    "specifications": [
+      {
+        "nameFa": "پردازنده",
+        "value": "I7 11700H"
+      },
+      {
+        "nameFa": "حافظه رم",
+        "value": "16GB"
+      },
+      {
+        "nameFa": "سایز صفحه نمایش",
+        "value": "16 اینچ"
+      },
+      {
+        "nameFa": "حافظه داخلی",
+        "value": "1TB SSD"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "category": "laptops",
+    "categoryFa": "لپتاپ",
+    "brand": {
+      "brandEn": "asus",
+      "brandFa": "ایسوس"
+    },
+    "model": "لپتاپ 16 اینچی ایسوس مدل N7600",
+    "modelEn": "Asus Vivobook N7600",
+    "image": "/images/n7600.png",
+    "price": 42510000,
+    "colors": [{ "nameFa": "مشکی", "nameEn": "black", "hex": "#000" }],
+    "specifications": [
+      {
+        "nameFa": "پردازنده",
+        "value": "I7 11370H"
+      },
+      {
+        "nameFa": "حافظه رم",
+        "value": "16GB"
+      },
+      {
+        "nameFa": "سایز صفحه نمایش",
+        "value": "16 اینچ"
+      },
+      {
+        "nameFa": "حافظه داخلی",
+        "value": "1TB SSD"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "category": "laptops",
+    "categoryFa": "لپتاپ",
+    "brand": {
+      "brandEn": "lenovo",
+      "brandFa": "لنوو"
+    },
+    "model": "لپتاپ 15.6 اینچی لنوو مدل Legion 7",
+    "modelEn": "Lenovo Legion 7",
+    "image": "/images/legion7.png",
+    "price": 41230000,
+    "colors": [{ "nameFa": "مشکی", "nameEn": "black", "hex": "#000" }],
+    "specifications": [
+      {
+        "nameFa": "پردازنده",
+        "value": "I7 10750H"
+      },
+      {
+        "nameFa": "حافظه رم",
+        "value": "16GB"
+      },
+      {
+        "nameFa": "سایز صفحه نمایش",
+        "value": "15.6 اینچ"
+      },
+      {
+        "nameFa": "حافظه داخلی",
+        "value": "1TB SSD"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "category": "laptops",
+    "categoryFa": "لپتاپ",
+    "brand": {
+      "brandEn": "lenovo",
+      "brandFa": "لنوو"
+    },
+    "model": "لپتاپ 16 اینچی لنوو مدل Legion 5 Pro",
+    "modelEn": "Lenovo Legion 5 Pro",
+    "image": "/images/legion5pro.png",
+    "price": 54390000,
+    "colors": [{ "nameFa": "مشکی", "nameEn": "black", "hex": "#000" }],
+    "specifications": [
+      {
+        "nameFa": "پردازنده",
+        "value": "Ryzen 7 5800H"
+      },
+      {
+        "nameFa": "حافظه رم",
+        "value": "16GB"
+      },
+      {
+        "nameFa": "سایز صفحه نمایش",
+        "value": "16 اینچ"
+      },
+      {
+        "nameFa": "حافظه داخلی",
+        "value": "1TB SSD"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "category": "watches",
+    "categoryFa": "ساعت هوشمند",
+    "brand": {
+      "brandEn": "mibro",
+      "brandFa": "میبرو"
+    },
+    "model": "ساعت هوشمند میبرو مدل X1",
+    "modelEn": "Mibro Watch X1",
+    "image": "/images/mibroX1.png",
+    "price": 1172000,
+    "colors": [{ "nameFa": "مشکی", "nameEn": "black", "hex": "#000" }],
+    "specifications": [
+      {
+        "nameFa": "وزن",
+        "value": "52 گرم"
+      },
+      {
+        "nameFa": "فرم صفحه",
+        "value": "گرد"
+      },
+      {
+        "nameFa": "جنس بند",
+        "value": "سیلیکون"
+      },
+      {
+        "nameFa": "نوع صفحه نمایش",
+        "value": "AMOLED"
+      },
+      {
+        "nameFa": "پشتیبانی از فارسی",
+        "value": "بله"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "category": "watches",
+    "categoryFa": "ساعت هوشمند",
+    "brand": {
+      "brandEn": "apple",
+      "brandFa": "اپل"
+    },
+    "model": "ساعت هوشمند اپل مدل Series 7",
+    "modelEn": "Apple Watch Series 7",
+    "image": "/images/apple-watch-7.png",
+    "price": 12390000,
+    "colors": [
+      { "nameFa": "مشکی", "nameEn": "black", "hex": "#000" },
+      { "nameFa": "سبز", "nameEn": "green", "hex": "#14532d" },
+      { "nameFa": "آبی", "nameEn": "blue", "hex": "#2563eb" }
+    ],
+    "specifications": [
+      {
+        "nameFa": "وزن",
+        "value": "32 گرم"
+      },
+      {
+        "nameFa": "فرم صفحه",
+        "value": "مستطیل"
+      },
+      {
+        "nameFa": "جنس بند",
+        "value": "سیلیکون"
+      },
+      {
+        "nameFa": "نوع صفحه نمایش",
+        "value": "Retina LTPO OLED"
+      },
+      {
+        "nameFa": "پشتیبانی از فارسی",
+        "value": "خیر"
       }
     ]
   }
