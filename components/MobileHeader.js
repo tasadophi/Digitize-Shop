@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useShop } from "./../context/state";
 import { searchOnProducts } from "./../lib/api";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const MobileHeader = ({ logo, title }) => {
   const [onSearch, setOnSearch] = useState(false);
@@ -14,6 +15,7 @@ const MobileHeader = ({ logo, title }) => {
   const [search, setSearch] = useState("");
   const shop = useShop();
   const allProducts = shop.allProducts;
+  const router = useRouter();
 
   const searchHandler = (e) => {
     setSearch(e.target.value);
@@ -33,7 +35,10 @@ const MobileHeader = ({ logo, title }) => {
           />
         </div>
       ) : (
-        <span className="w-8 h-8 bg-white shadow-md rounded-xl p-1 flex justify-center items-center -rotate-90">
+        <span
+          className="w-8 h-8 bg-white shadow-md rounded-xl p-1 flex justify-center items-center -rotate-90"
+          onClick={() => router.back()}
+        >
           <ChevronIcon />
         </span>
       )}
