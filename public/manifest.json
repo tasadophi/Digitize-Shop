@@ -1,0 +1,17 @@
+{
+  "theme_color": "#f69435",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "name": "DigiTize Shop",
+  "short_name": "DigiTize",
+  "description": "DigiTize Shopping Website",
+  "icons": [
+    {
+      "src": "/images/Logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
