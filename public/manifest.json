@@ -9,8 +9,8 @@
   "description": "DigiTize Shopping Website",
   "icons": [
     {
-      "src": "/images/Logo.png",
-      "sizes": "50x42",
+      "src": "/images/pwaLogo.png",
+      "sizes": "144x144",
       "type": "image/png"
     }
   ]
